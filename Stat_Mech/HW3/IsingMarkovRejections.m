@@ -1,0 +1,41 @@
+% October 2017 -- Markov chain algorithm
+% IsingMarkovRejections.m
+clear all; close all;
+
+L = int32(16);
+N =  int32(L  * L);
+nbr = [];
+for i = 1:N
+    j = i-1;
+    j = int32(j);
+    nbr = [nbr;idivide(j,L,'floor')*L + mod(i,L) + 1, mod(j+L,N) + 1,...
+                    idivide(j,L,'floor')*L + mod(j-1,L) + 1, mod(j-L,N) + 1];
+end
+%
+nsteps = 10^5;  %10^6;
+T = 2.0;
+beta = 1.0 / T;
+replacement = true;
+S = randsample([-1, +1], N, replacement);
+hits = 0;
+for i = 1:nsteps
+    k = randi(N,1,1);
+    delta_E = 2.0 * S(k) * sum(S(nbr(k,:)));
+    if rand < exp(-beta * delta_E)
+        S(k) = -S(k);
+        hits = hits + 1;
+    end
+end
+HitSample_ratio = hits/nsteps
+
+% for i = 1:L
+% mat(i,:) = S((i-1)*L+1:i*L);
+% end
+% colormap([0 0 0; 1 1 1]);
+% image(mat.*255);
+% title(['Temperature = ', num2str(T)  ], 'FontSize', 20); 
+% set(gca, 'FontSize', 20);
+
+
+
+
