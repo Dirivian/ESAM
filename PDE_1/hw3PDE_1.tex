@@ -1,0 +1,213 @@
+%  This is a LaTex file.
+
+%  Homework for the course "AMath 585:  Applied Linear Algebra and Numerical Analysis",
+%  Autumn quarter, 2009, Anne Greenbaum.
+
+
+%   A latex format for making homework assignments.
+
+
+\documentclass[letterpaper,12pt]{article}
+
+%          The page format, somewhat wider and taller page than in art12.sty.
+
+\topmargin -0.1in \headsep 0in \textheight 8.9in \footskip 0.6in
+\oddsidemargin 0in  \evensidemargin 0in  \textwidth 6.5in
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	%identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{blue},
+	backgroundcolor=\color{white},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	%identifierstyle=\color{brown},
+	breaklines=true,
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+\usepackage{amsmath}
+\usepackage{epsfig}         % to insert PostScript figures
+       % to insert PostScript figures
+
+\begin{document}
+
+
+%          Definitions of commonly used symbols.
+
+
+
+%          The title and header.
+
+\noindent
+{\scriptsize ES$\_$APPM 411-1, Fall 2018} \hfill
+
+\begin{center}
+\large
+Assignment 3.
+\normalsize
+
+Jithin D. George
+\end{center}
+
+\noindent
+Due Oct 16
+\vspace{.3in}
+
+%           The questions!
+
+
+
+\noindent
+
+
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item
+\[L u = [p(x)u'(x)]' +q(x)u(x)\]
+\begin{align*} \int_a^b v L u  dx & =   \int_a^b v(x) ([p(x)u'(x)]' +q(x)u(x)) dx \\
+& = [v(x) p(x)u'(x) ]_a^b+ \int_a^b  - v' p u' + q u v dx \\
+& = [v pu'-v'pu ]_a^b+  \int_a^b v'' p u+ v'p'u + q u v dx \\
+& = [v pu'-v'pu ]_a^b+ u \int_a^b v'' p + v'p' + q  v dx \\
+\end{align*}
+The adjoint equation is
+\[L^* v = [p(x)v'(x)]' +q(x)v(x)\]
+For the boundary conditions ,
+\[v(b) p(b)u'(b)-v'(b)p(b)u(b)- v(a) p(a)u'(a)+v'(a)p(a)u(a)=0\]
+\[u(b)(-\frac{\alpha_1}{\alpha_2} v(b) p(b)-v'(b)p(b))- u(a)(-\frac{\beta_1}{\beta_2}v(a) p(a)-v'(a)p(a))=0\]
+
+Thus, the adjoint boundary conditions are
+\[\alpha_1 v(b) p(b)+\alpha_2 v'(b)p(b)= 0\]
+\[\beta_1 v(a) p(a)+ \beta_2 v'(a)p(a) = 0\]
+\item
+\[L u = [p(x)u'(x)]' +q(x)u(x)\]
+\begin{align*} \int_a^b v L u  dx & =   \int_a^b v(x) ([p(x)u'(x)]' +q(x)u(x)) dx \\
+& = [v(x) p(x)u'(x) ]_a^b+ \int_a^b  - v' p u' + q u v dx \\
+& = [v pu'-v'pu ]_a^b+  \int_a^b v'' p u+ v'p'u + q u v dx \\
+& = [v pu'-v'pu ]_a^b+ u \int_a^b v'' p + v'p' + q  v dx \\
+\end{align*}
+The adjoint equation is
+\[L^* v = [p(x)v'(x)]' +q(x)v(x)\]
+For the boundary conditions ,
+\[v(b) p(b)u'(b)-v'(b)p(b)u(b)- v(a) p(a)u'(a)+v'(a)p(a)u(a)=0\]
+\[p(b)u'(b)(v(b)-v(a))+u(a)(v'(a)p(a)-v'(b)p(b))=0\]
+Thus, the adjoint boundary conditions are
+\[v(b)-v(a) =0 \]
+\[v'(a)p(a)-v'(b)p(b) =0 \]
+
+\item
+\[Lu = u''(x)+[c(x)-x]u'(x)+c'(x)u(x)\]
+\begin{align*} \int_a^b v L u  dx & =   \int_a^b v(x) (u''(x)+[c(x)-x]u'(x)+c'(x)u(x) ) dx \\
+& = [vu' + v(c-x)u ]_a^b+ \int_a^b  - v' u' -u(v(c'-1)+v'(c-x)) + c' u v dx \\
+& = [vu' + v(c-x)u -v'u ]_a^b+ \int_a^b  v'' u -u(v(c'-1)+v'(c-x)) + c' u v dx \\
+& = [vu' + v(c-x)u -v'u ]_a^b+ u \int_a^b  v''  -v(c'-1)+v'(c-x) + c'  v dx \\
+& = [vu' + v(c-x)u -v'u ]_a^b+ u \int_a^b  v''  +v +v'(c-x)  dx \\
+\end{align*}
+The adjoint equation is
+\[L^* v = v''(x) +(c(x)-x)v'(x)+v(x)\]
+For the boundary conditions ,
+\[v(1) u'(1)+v(1)(c(1)-1)u(1)-v'(1)u(1) - v(0) u'(0)- v(0)c(0)u(0)+v'(0)u(0)=0\]
+
+\[-v(1)u(0) -v'(1)u(1) + v(0) u(1)+v'(0)u(0)=0\]
+Thus, the adjoint boundary conditions are
+\[v'(0)=v(1)\]
+\[v'(1)=v(0)\]
+\end{enumerate}
+
+\item
+\[x(1-x)y''-2y'+2y=0\]
+
+\[y =x^r\sum_{n=0}^\infty a_nx^n = \sum_{n=0}^\infty a_nx^{r+n}= a_0 x^r + a_1 x^{r+1} +\ldots\]
+with
+\[a_0\neq 0\]
+
+To find r, we plug $a_0 x^r $ into the ode.
+\[r(r-1)x^{r-1}-r(r-1)x^r-2rx^{r-1}+2x^r=0\]
+Equating the lowest order terms,
+\[r^2-3r=0\]
+\[ r = 3,0\]
+So, the leading terms are 1 and $x^3$.
+\[y = \sum_{n=0}^\infty a_n x^{n+r} \]
+\[y' = \sum_{n=0}^\infty (n+r) a_{n} x^{n+r-1}\]
+\[y''= \sum_{n=0}^\infty (n+r)(n+r-1) a_{n} x^{n+r-2} \]
+
+\begin{align*}
+\sum_{n=0}^\infty (n+r)(n+r-1) a_{n} x^{n+r-1} - \sum_{n=0}^\infty (n+r)(n+r-1) a_{n} x^{n+r} - 2 \sum_{n=0}^\infty (n+r) a_{n} x^{n+r-1} \\ + 2 \sum_{n=0}^\infty a_{n} x^{n+r}  =0
+\end{align*}
+
+To find the reccurence relation,
+\begin{align*}
+\sum_{n=0}^\infty (n+r+1)(n+r) a_{n+1} x^{n+r} - \sum_{n=0}^\infty (n+r)(n+r-1) a_{n} x^{n+r} - 2 \sum_{n=0}^\infty (n+r+1) a_{n+1} x^{n+r} \\ + 2 \sum_{n=0}^\infty a_{n} x^{n+r}  =0
+\end{align*}
+\[ a_{n+1} = a_n \frac{(n+r-1)(n+r) -2}{(n+r+1)(n+r) - 2 (n+r+1)}\]
+
+When r =0,
+
+\[ a_{n+1} = a_n \frac{n^2-n -2}{(n+1)(n-2)}=  a_n\]
+When r =3,
+
+\[ a_{n+1} = a_n \frac{(n+2)(n+3) -2}{(n+4)(n+3) - 2 (n+4)} = a_n \frac{n^2+5n+4}{n^2+5n+4}= a_n \]
+
+So,
+
+\begin{align*}
+y &= c_1 (1+ x+x^2+x^3 +\hdots) + c_2 x^3 (1+ x+x^2+x^3 +\hdots)\\
+&= c_1 \frac{1}{1-x} + c_2 \frac{x^3}{1-x}
+\end{align*}
+
+\item
+\[y'' - xy = 0\]
+This is not singular. So,
+\[y = \sum_{n=0}^\infty a_n x^n \]
+
+\[y''= \sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^{n} \]
+\[\sum_{n=0}^\infty (n+2)(n+1) a_{n+2} x^{n} + \sum_{n=0}^\infty a_n x^{n+1} =0 \]
+\[2a_2 + \sum_{n=1}^\infty (n+2)(n+1) a_{n+2} x^{n} + \sum_{n=1}^\infty a_{n-1} x^{n} =0 \]
+So,
+\[a_2 = 0\]
+\[a_{n+2} = -\frac{1}{(n+2)(n+1)}a_{n-1}\]
+\[y = a_0\big(1 -  \frac{x^3}{6} +  \frac{x^6}{30} + \ldots \big) +a_1\big(x - \frac{x^4}{12}+ \frac{x^7}{3*4*6*7} + \ldots \big)\]
+\end{enumerate}
+\end{document}

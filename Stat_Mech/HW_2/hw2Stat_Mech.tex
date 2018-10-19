@@ -1,0 +1,227 @@
+%  This is a LaTex file.
+
+%  Homework for the course "AMath 585:  Applied Linear Algebra and Numerical Analysis",
+%  Autumn quarter, 2009, Anne Greenbaum.
+
+
+%   A latex format for making homework assignments.
+
+
+\documentclass[letterpaper,12pt]{article}
+
+%          The page format, somewhat wider and taller page than in art12.sty.
+
+\topmargin -0.1in \headsep 0in \textheight 8.9in \footskip 0.6in
+\oddsidemargin 0in  \evensidemargin 0in  \textwidth 6.5in
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\definecolor{keywords}{RGB}{255,0,90}
+\definecolor{comments}{RGB}{0,0,113}
+\definecolor{red}{RGB}{160,0,0}
+\definecolor{green}{RGB}{0,150,0}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{brown}{rgb}{0.59, 0.29, 0.0}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\lstdefinestyle{myMatlabstyle}{
+	language=Matlab,
+	backgroundcolor=\color{white},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	%identifierstyle=\color{brown},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{orange},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
+}
+\lstdefinestyle{myPythonstyle}{
+	language=Python,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{blue},
+	backgroundcolor=\color{white},
+	commentstyle=\color{green},
+	stringstyle=\color{red},
+	showstringspaces=false,
+	%identifierstyle=\color{brown},
+	breaklines=true,
+}
+\lstset{language=Matlab,frame=single}
+\lstset{language=Python,frame=single}
+\usepackage{amsmath}
+\usepackage{epsfig}         % to insert PostScript figures
+       % to insert PostScript figures
+
+\begin{document}
+
+
+%          Definitions of commonly used symbols.
+
+
+
+%          The title and header.
+
+\noindent
+{\scriptsize ME 422, Fall 2018} \hfill
+
+\begin{center}
+\large
+Assignment 1.
+\normalsize
+
+Jithin D. George
+\end{center}
+
+\noindent
+Due Oct 17
+\vspace{.3in}
+
+%           The questions!
+
+
+
+\noindent
+
+
+\begin{enumerate}
+\item
+
+There are $2^{100} \approx 10^{30}$ configurations possible. I have an i3 processor which has roughly 3 GHz. This means it can do $3x10^9$ calculations in a second. So, it would take around $10^{20}$ seconds to do calculations of all the configurations. That's $10^{13}$ years of calculations!.
+
+\item
+
+\begin{enumerate}
+\item
+
+\begin{tikzpicture}
+
+
+
+
+\draw[->](3.5,-0.7) -- (3.5,0) ;
+\draw[->](4,-0.7) -- (4,0) ;
+\node at (4.25,-0.7) {,};
+\draw[->](4.5,0) -- (4.5,-0.7) ;
+\draw[->](5,-0.7) -- (5,0) ;
+\node at (5.25,-0.7) {,};
+\draw[->](5.5,-0.7) -- (5.5,0) ;
+\draw[->](6,0) -- (6,-0.7) ;
+
+\node at (6.25,-0.7) {,};
+\draw[->](6.5,0) -- (6.5,-0.7) ;
+\draw[->](7,0) -- (7,-0.7) ;
+
+\end{tikzpicture}
+
+\item
+
+\[Z = \sum_i e^{-\beta \epsilon U_i} = 2 e^{\beta \epsilon}+ 2 e^{-\beta \epsilon} = 4 cosh(\beta \epsilon)\]
+ \item
+ There are 4 states. So, the mean energy is
+ \[<E>= \frac{2\epsilon e^{-\beta \epsilon} -2\epsilon e^{ \beta \epsilon} }{Z}= -\frac{2\epsilon e^{\beta \epsilon} -2\epsilon e^{- \beta \epsilon} }{2 e^{\beta \epsilon}+ 2 e^{-\beta \epsilon}} = - \epsilon \tanh(\beta \epsilon) \]
+ \item Mean energy is close to $-\epsilon$ when $\tanh(\beta \epsilon)$ close to 1, which happens for $\beta \epsilon$ sufficiently greater than 0. This happens because the parallel spin terms dominate then giving the mean energy equivalent to that of a parallel spin.
+ \item One.
+ \[\lim_{T \to 0} \frac{2 e^{\beta \epsilon}}{2 e^{\beta \epsilon}+2 e^{-\beta \epsilon}} = \lim_{\beta  \to \infty} \frac{2 e^{\beta \epsilon}}{2 e^{\beta \epsilon}+2 e^{-\beta \epsilon}} = 1 \]
+ \item Zero.
+  \[\lim_{T \to 0} \frac{2 e^{-\beta \epsilon}}{2 e^{\beta \epsilon}+2 e^{-\beta \epsilon}} = \lim_{\beta  \to \infty} \frac{2 e^{-\beta \epsilon}}{2 e^{\beta \epsilon}+2 e^{-\beta \epsilon}} = 0 \]
+ \item Zero.
+ \[\lim_{T \to \infty} <E> = \lim_{\beta  \to 0}  - \epsilon \tanh(\beta \epsilon) =0\]
+
+ \item
+
+Ratio of probability for the all up state to the all down state is 1 regardless of temperature because they have the same probability. Similarly, the ratio of the probablities of the two anti-parallel states are 1.
+
+
+
+Ratio of the probability of a parallel state to an anti-parallel one is
+ \[ \lim_{\beta  \to 0}\frac{ e^{\beta \epsilon}}{ e^{-\beta \epsilon}} = 1\]
+
+ \item
+ For the probabilities to be equal, we need
+ \[e^{\beta \epsilon} = 2e^{-\beta \epsilon}\]
+  \[2\beta \epsilon = \log(2)\]
+	\[T = \frac{2 \epsilon}{k_B \log 2}\]
+
+ \item
+
+ It seems to be $\beta \epsilon$ that determines the probability of states and thus, $\frac{\epsilon}{k_B T}$ is the parameter that controls the nature of the system.
+
+\end{enumerate}
+
+
+\item
+
+\begin{enumerate}
+\item Each state is influenced only by its two neighbours. So, it's a closed system.
+
+\item
+ The minimum prossible energy is  $-4  \epsilon$.
+
+ \item
+
+ \begin{tikzpicture}
+
+
+
+
+ \draw[->] (3.5,-0.7)-- (3.5,0) ;
+ \draw[->](4,-0.7) -- (4,0) ;
+ \node at (5,-0.7) { and };
+ \draw[->](6,-1) -- (6,-1.7) ;
+ \draw[->] (6.5,-1) --(6.5,-1.7)  ;
+
+
+ \draw[->] (4,-1.7)--(4,-1)  ;
+  \draw[->](3.5,-1.7) -- (3.5,-1) ;
+
+	\draw[->](6.5,0) -- (6.5,-0.7) ;
+  \draw[->](6,0)-- (6,-0.7)  ;
+ \end{tikzpicture}
+
+\end{enumerate}
+
+\item
+\begin{enumerate}
+
+\item
+idivide(a,b) returns the closest integer to a/b which is either lesser than or greater than or just the closest one to a/b depending on the option. Mod returns the remainder in a/b
+\item It seems to be West, South, East, North.
+
+\item From the Matlab output nbr, it seems to be periodic boundaries.
+\item
+\[[-1,-1,-1,-1] \to_{k=1} [1,-1,-1,-1] \to_{k=2} [1,1,-1,-1] \to_{k=1} [-1,1,-1,-1] \]
+
+\end{enumerate}
+\item
+
+Tried running it for a 10x10 system. This is the result.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=9cm]{1hxny5.jpg}
+
+\end{figure}
+
+\end{enumerate}
+\end{document}
