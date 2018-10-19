@@ -18,7 +18,7 @@ M = 100;
 % You can change the number of frames displayed by changing M.
 % M = nsteps will display every frame.
 % The code runs much faster by displaying fewer frames.
-T = 2;
+T = 200;
 beta = 1.0 / T; 
 replacement = true;
 S = randsample([-1, +1], N, replacement);
@@ -42,24 +42,23 @@ toc
 AvgMagnetization = sum(mags)/nsteps     %%%
                         
 
-
-% Visualtization
-figstep = 1;
-for k = 1:size(Ss,1)
-    Si = Ss(k,:);
-    magnetizationState = sum(Si);
-    for i = 1:L
-        mat(i,:) = Si((i-1)*L+1:i*L);
-    end
-    colormap([0 0 0; 1 1 1]);
-    image(mat.*255);
-    if k~=1;figstep = (k-1)*nsteps/M;end;
-title({['Temperature = ', num2str(T)  ];['nstep = ', num2str(figstep)];...
-                ['Magnetization = ', num2str(magnetizationState)]}, 'FontSize', 20); 
-set(gca, 'FontSize', 20);
-                         pause(0.1);
-% You can change the duration of the pause between graphics by changing the
-% number of seconds in pause(seconds).
-end
-  
+% % Visualtization
+% figstep = 1;
+% for k = 1:size(Ss,1)
+%     Si = Ss(k,:);
+%     magnetizationState = sum(Si);
+%     for i = 1:L
+%         mat(i,:) = Si((i-1)*L+1:i*L);
+%     end
+%     colormap([0 0 0; 1 1 1]);
+%     image(mat.*255);
+%     if k~=1;figstep = (k-1)*nsteps/M;end;
+% title({['Temperature = ', num2str(T)  ];['nstep = ', num2str(figstep)];...
+%                 ['Magnetization = ', num2str(magnetizationState)]}, 'FontSize', 20); 
+% set(gca, 'FontSize', 20);
+%                          pause(0.1);
+% % You can change the duration of the pause between graphics by changing the
+% % number of seconds in pause(seconds).
+% end
+%   
 

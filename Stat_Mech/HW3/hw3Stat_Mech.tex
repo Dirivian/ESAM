@@ -111,8 +111,24 @@ Due Oct 24
 
 \begin{enumerate}
 \item
+In this example, the temperature is a constant, say $T_0$.
+
+Thus, the temperature at any time could be described relative to it.
+\[T(t) = T^* T_0\]
+Thus,
+\[T^* = \frac{T(t)}{T_0}\]
 
 \item
+
+\[\beta = \frac{1}{k_B T}\]
+Now, $k_B T_0$ is a constant. So, we define
+\[\beta^* = k_B T_0 \beta = \frac{1}{T^*}\]
+
+\item 
+\[\Delta E = \beta \epsilon =\frac{1}{k_B T} \epsilon \]
+\[\Delta E^*  = \frac{k_B T_0}{\epsilon} \frac{1}{k_B T} \epsilon \]
+
+
 
 \end{enumerate}
 
@@ -120,8 +136,26 @@ Due Oct 24
 \item
 
 \begin{enumerate}
-\item Each state is influenced only by its two neighbours. So, it's a closed system.
+\item
+For the 5 temperatures (1,5,10,15,20), the ratio is plotted below.
 
+\item 
+As the temperature increases, the probability of switching goes to 1. This is because the energy $\beta \epsilon$ goes to zero with increasing temperature. Thus, the random variable in the Metropolis algorithm will always be less than $e^0$ and switching would happen nearly always.
+
+\end{enumerate}
+
+\item 
+
+\begin{enumerate}
+\item 
+\begin{enumerate}
+\item
+magnetization measures the number of positive spins minus the number of negative spins.
+
+\item 
+Average magnetization measures the average magnetization over nsteps.
+
+\end{enumerate}
 \item
  The minimum prossible energy is  $-4  \epsilon$.
 
@@ -149,5 +183,22 @@ Due Oct 24
 \end{enumerate}
 
 \item
+Magnetization is lost on increasing temperature.
+Iron is magnetic at room temperature. So,
+\[\frac{\epsilon}{k_B T_r} >>0\]
+So, we would expect 
+\[\frac{\epsilon}{k_B T_r} > 1\]
+\[\alpha k_B T_r >   k_B T_r\]
+So, 
+\[\alpha  >   1\]
+
+Let's see if it's true. Iron loses magnetization at 1024 K.
+So,
+\[\frac{\epsilon}{k_B 1024} \approx 0\]
+\[\frac{\epsilon}{k_B 1024} < 1\]
+\[\epsilon  < 1.4 *10^{-20}J\]
+We would guess $\epsilon$ around $1.4 *10^{-20}$ which is still bigger than $k_B T_r$
+
+So, $\alpha$ should be greater than 1.
 \end{enumerate}
 \end{document}

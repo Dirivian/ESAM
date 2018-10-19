@@ -13,7 +13,7 @@ for i = 1:N
 end
 %
 nsteps = 10^5;  %10^6;
-T = 20.0;
+T = 10.0;
 beta = 1.0 / T;
 replacement = true;
 S = randsample([-1, +1], N, replacement);
