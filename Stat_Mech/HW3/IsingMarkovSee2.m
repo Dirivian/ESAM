@@ -2,7 +2,7 @@
 % IsingMarkovSee2.m
 clear all; close all;
 
-L = int32(5);
+L = int32(50);
 N =  int32(L  * L);
 nbr = [];
 for i = 1:N
@@ -18,7 +18,8 @@ M = 100;
 % You can change the number of frames displayed by changing M.
 % M = nsteps will display every frame.
 % The code runs much faster by displaying fewer frames.
-T = 200;
+Averagemags=[];
+for T = 1:0.5:4
 beta = 1.0 / T; 
 replacement = true;
 S = randsample([-1, +1], N, replacement);
@@ -39,9 +40,12 @@ for i = 1:nsteps
     end
 end
 toc
-AvgMagnetization = sum(mags)/nsteps     %%%
-                        
-
+AvgMagnetization = sum(mags)/nsteps  ;   %%%
+ Averagemags = [Averagemags,AvgMagnetization]; 
+ end
+plot(1:0.5:4,Averagemags)
+title({['Grid Size = ', num2str(N)  ];}, 'FontSize', 20); 
+          
 % % Visualtization
 % figstep = 1;
 % for k = 1:size(Ss,1)
